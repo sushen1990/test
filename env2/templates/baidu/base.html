@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>百度首页</title>
+	<link rel="stylesheet" 	href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+	<div class="container-fluid">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="/">精选</a></li>
+			<li><a href="/百家">百家</a></li>
+			<li><a href="/本地">本地</a></li>
+			<li><a href="/娱乐">娱乐</a></li>
+			<li><a href="/军事">军事</a></li>
+		</ul>		
+	</div>
+	{% block content %}
+	{% endblock %}
+	<script src="{{ url_for('static',filename='jquery-3.3.1.js') }}"></script>
+	<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+	{% block js %}
+	{% endblock %}	
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'baidu/base.html' %}
+
+	{% block content %}
+		<p hidden="true">{{ classfy }}</p>
+		<h3>标题：{{ news }}</h3>
+		<div>
+			内容略
+		</div>
+	{% endblock %}	
+
+
+	{% block js %}
+		<script src="{{ url_for('static',filename='js/nav-act.js') }}"></script>
+	{% endblock %}	
