@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block table %}
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>编号</th>
+                  <th>标题</th>
+                  <th>类型</th>
+                  <th>创建时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+            {% for item in news_list %}
+                <tr>
+                  <th scope="row">{{ item.id }}</th>
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.news_type }}</td>
+                  <td>{{ item.create_at }}</td>
+                  <td>
+                    <a class="btn btn-info">修改</a>
+                    <a class="btn btn-danger">删除</a>
+                  </td>
+                </tr>
+            {% endfor %}
+              </tbody>
+            </table>
+{% endblock %}

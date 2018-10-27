@@ -17,3 +17,14 @@ class LoginForm(FlaskForm):
     code = TextAreaField('代码')
     is_checked = BooleanField("是否验证通过")
     submit = SubmitField("登陆")
+
+class NewsForm(FlaskForm):
+    title = StringField(label='新闻标题' , validators=[DataRequired("请输入标题")] , description='请输入标题' ,
+                        render_kw={"required":"required", "class":"form-control"}
+                        )
+    content = TextAreaField(label='新闻内容', validators=[DataRequired("请输入内容")], description='请输入内容',
+                          render_kw={"required":"required", "class":"form-control"})
+    news_type = SelectField(label="新闻类型", choices=[
+        ("推荐", "推荐"), ("百家", "百家"), ("本地", "本地"), ("图片", "图片")
+    ])
+    submit = SubmitField("提交")
