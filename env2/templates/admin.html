@@ -1,29 +1,42 @@
 {% extends 'base.html' %}
 
+{% block title  %}
+  	<title>首页1</title>
+{% endblock %}
+
+
 {% block table %}
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>编号</th>
-                  <th>标题</th>
-                  <th>类型</th>
-                  <th>创建时间</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody>
-            {% for item in news_list %}
-                <tr>
-                  <th scope="row">{{ item.id }}</th>
-                  <td>{{ item.title }}</td>
-                  <td>{{ item.news_type }}</td>
-                  <td>{{ item.create_at }}</td>
-                  <td>
-                    <a class="btn btn-info">修改</a>
-                    <a class="btn btn-danger">删除</a>
-                  </td>
-                </tr>
-            {% endfor %}
-              </tbody>
-            </table>
+
+<div class="bs-example" data-example-id="panel-without-body-with-table">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">数据</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>编号</th>
+          <th>标题</th>
+          <th>类型</th>
+          <th>创建时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% for item in news_list %}
+        <tr>
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.title }}</td>
+          <td>{{ item.news_type }}</td>
+          <td>{{ item.create_at }}</td>
+          <td>
+            <a class="btn btn-info">修改</a>
+            <a class="btn btn-danger">删除</a>
+          </td>
+        </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+    <!-- Table -->
+  </div>
+</div>
 {% endblock %}
