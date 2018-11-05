@@ -10,7 +10,7 @@ app = Flask(__name__) # 创建实例
 @app.route("/")      # 当浏览器指向此地址
 def index():         # 要做的事情
     """方法注释"""
-    return render_template("baidu/home.html") 
+    return render_template("admin.html")
 
 @app.route("/<classfy>") # 当浏览器地址为"home/a",<classfy>的值就是a，这里相当于传递参数了
 def toClassfy(classfy):
