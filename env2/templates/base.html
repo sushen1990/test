@@ -8,6 +8,14 @@
 </head>
 <body>
 	<div class="container">
+        <!--flask消息-->
+        {% for msg in get_flashed_messages() %}
+        <p>
+                    {{ msg }}
+        </p>
+        {% endfor %}
+        <!--flask消息-->
+
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <ul class="nav nav-tabs">
@@ -33,7 +41,7 @@
     <div class="row">
       <div class="col-md-3">
         <div class="list-group">
-          <a href="" class="list-group-item">首页</a>
+          <a href="{{ url_for('login1') }}" class="list-group-item">首页</a>
           <a href="" class="list-group-item">推荐</a>
           <a href="{{ url_for('add_news') }}" class="list-group-item">新增</a>
         </div>
