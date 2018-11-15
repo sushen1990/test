@@ -1,7 +1,6 @@
 
-from flask import Flask, render_template, url_for , flash , redirect , abort
-from NewsForm import News, Comment
-from forms import Form_news
+from flask import Flask, render_template, url_for , flash , redirect , abort, request
+
 from flask import Flask, render_template, url_for
 from NewsForm import News, Comment
 from forms import Form_news
@@ -51,6 +50,7 @@ def update_news(pk):
         abort(404)
 
     news = Form_news(obj=new_obj)
+
     if news.is_submitted():
         new_obj.title = news.title.data
         new_obj.content = news.content.data
@@ -63,12 +63,18 @@ def update_news(pk):
 
     return render_template("add.html", news = news)
 
-@app.route("/add")
-def delete_news():
-    """新增页面"""
-    news = Form_news()
-    return render_template("add.html", news = news)
-
+@app.route("/add/delete<int:pk>", methods=["POST"])
+def delete_news(pk):
+    """删除模块"""
+    if request.method == "POST":
+        new_obj = News.query.get(pk)
+        if new_obj == None:
+            return 'no'
+        from NewsForm import db as thisdb
+        thisdb.session.delete(new_obj)
+        thisdb.session.commit()
+        return 'yes'
+    return 'no'
 
 if __name__ == '__main__':
     app.run(debug=True)
