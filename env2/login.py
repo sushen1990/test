@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, url_for , flash , redirect , abort
 from NewsForm import News, Comment
 from forms import Form_news
+=======
+from flask import Flask, render_template, url_for
+from NewsForm import News, Comment
+from forms import NewsForm
+>>>>>>> f68c11c1254cf47261c78177d42579232e829148
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -18,6 +24,7 @@ def login1():
     news_list = News.query.all()
     return render_template("admin.html", news_list=news_list) # 注意这里form就是定义好的类
 
+<<<<<<< HEAD
 @app.route("/add", methods=["GET","POST"])
 def add_news():
     """新增新闻"""
@@ -60,5 +67,12 @@ def update_news(pk):
     return render_template("add.html", news = news)
 
 
+=======
+@app.route("/add")
+def add_news():
+    """新增页面"""
+    news = NewsForm()
+    return render_template("add.html", news = news)
+>>>>>>> f68c11c1254cf47261c78177d42579232e829148
 if __name__ == '__main__':
     app.run(debug=True)
